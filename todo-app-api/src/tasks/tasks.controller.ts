@@ -1,4 +1,13 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
+import { Task } from './task.model';
 import { TasksService } from './tasks.service';
 
 @Controller('tasks')
@@ -7,25 +16,36 @@ export class TasksController {
 
   // Create tasks
   @Post()
-  createTask(@Body() body: any[]) {
-    return this.tasksService.createTask(body);
+  async createTask(@Body() body: Task): Promise<Task[]> {
+     const tasks = await this.tasksService.createTask(body);
+     return tasks;
   }
 
   // Get Tasks
   @Get()
-  getTasks(): any[] {
-    return this.tasksService.getTasks();
+  async getTasks(): Promise<Task[]> {
+     const tasks = await this.tasksService.getTasks();
+     return tasks;
   }
 
   // Get one task
   @Get(':id')
-  getOneTask(@Param('id') id: string): any {
-    return this.tasksService.getOneTask(id);
+  async getOneTask(@Param('id') id: string): Promise<Task> {
+    const task = await this.tasksService.getOneTask(id);
+     return task;
+  }
+
+  // Update Task
+  @Patch(':id')
+  async updateTask(@Param('id') id: string, @Body() body: Task): Promise<Task> {
+    const task = await this.tasksService.updateTask(id, body);
+    return task;
   }
 
   // Delete Task
   @Delete(':id')
-  deleteTask(@Param('id') id: string): string {
-    return this.tasksService.deleteTask(id);
+  async deleteTask(@Param('id') id: string): Promise<string> {
+    const taskId = this.tasksService.deleteTask(id);
+    return taskId;
   }
 }
