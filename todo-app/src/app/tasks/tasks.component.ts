@@ -3,6 +3,7 @@ import { TasksService } from './tasks.service';
 import { Task } from './task.model';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskDialogComponent } from './../task-dialog/task-dialog.component';
+import { Subscriber } from 'rxjs';
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
@@ -20,7 +21,7 @@ tasks: Task[] = [];
   }
 
   // Get Task
-  getTasks(){
+  getTasks(): void {
     this.tasksService.getTasks()
     .subscribe(
       (response: Task[]) => {
@@ -33,7 +34,7 @@ tasks: Task[] = [];
   }
 
   // Edit Task
-  editTask(task: Task){
+  editTask(task: Task): void{
     const dialogRef = this.dialog.open(TaskDialogComponent, {
       width: '600px',
       data: {
@@ -56,6 +57,20 @@ tasks: Task[] = [];
        )
       }
     )
+  }
+
+  // Delete Task
+  deleteTask(task: Task): void {
+   this.tasksService.deleteTask(task)
+   .subscribe(
+     (response: string) => {
+      const index = this.tasks.indexOf(task);
+      this.tasks.splice(index,1)
+     },
+     error => {
+       console.log(error)
+     }
+   )
   }
 
 }

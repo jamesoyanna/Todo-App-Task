@@ -23,4 +23,10 @@ export class TasksService {
   editTask(task: Task): Observable<Task | any>{
     return this.http.patch(`${this.apiUrl}/tasks/${task.id}`, task)
   } 
+
+
+  // Delete Task
+  deleteTask(task: Task): Observable<string | any>{
+    return this.http.delete(`${this.apiUrl}/tasks/${task.id}`, {responseType:'text'})
+  }
 }

@@ -17,12 +17,12 @@ export class TaskDialogComponent implements OnInit {
   }
 
   // Close dialog
-  close(){
+  close(): void{
     this.dialogRef.close();
   }
 
   // Save data
-  save() {
+  save(): void {
     this.dialogRef.close(this.data)
   }
 }
