@@ -5,6 +5,10 @@ import { MatCardModule } from '@angular/material/card';
 import {MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import {MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import {MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [],
@@ -14,7 +18,11 @@ import {MatTableModule } from '@angular/material/table';
     MatCardModule,
     MatListModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule
   ],
   exports: [
     MatToolbarModule,

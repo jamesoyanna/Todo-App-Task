@@ -7,19 +7,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+//import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
-    TasksComponent
+    TasksComponent,
+    TaskDialogComponent
   ],
   imports: [
  
   BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
