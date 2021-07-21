@@ -9,12 +9,14 @@
     <div>
         <mat-form-field>
             <mat-label>Task Description</mat-label>
-            <input type="text" matInput placeholder="Task Description" [(ngModel)]='data.task.description'>
+            <input type="text" matInput  placeholder="Task Description" [(ngModel)]='data.task.description'>
         </mat-form-field>
     </div>
 </div>
+
 
  <div mat-dialog-actions align="end">
      <button mat-raised-button [disabled]="data.task.title === '' || data.task.description === '' " color="primary" (click)="save()">Save</button>
     <button mat-button (click)="close()">Close</button>
  </div>
+

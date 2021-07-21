@@ -18,4 +18,9 @@ export class TasksService {
   getTasks(): Observable<Task[] | any>{
   return this.http.get(`${this.apiUrl}/tasks`)
   }
+
+  // Edit Task
+  editTask(task: Task): Observable<Task | any>{
+    return this.http.patch(`${this.apiUrl}/tasks/${task.id}`, task)
+  } 
 }

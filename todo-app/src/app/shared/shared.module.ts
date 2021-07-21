@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 
+
 @NgModule({
   declarations: [],
   imports: [
@@ -22,14 +23,17 @@ import { MatInputModule } from '@angular/material/input';
     MatDialogModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
   ],
   exports: [
     MatToolbarModule,
      MatCardModule,
     MatListModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
   ]
 })
 export class SharedModule { }

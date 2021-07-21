@@ -8,8 +8,7 @@ import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
-//import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,12 +18,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     TaskDialogComponent
   ],
   imports: [
- 
   BrowserModule,
+   FormsModule,
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

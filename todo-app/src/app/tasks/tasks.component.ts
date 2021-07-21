@@ -42,7 +42,18 @@ tasks: Task[] = [];
     })
     dialogRef.afterClosed().subscribe(
       (result: any) =>{
-        console.log(result)
+       if(!result){
+         return 
+       }
+       this.tasksService.editTask(result.task)
+       .subscribe(
+         (response: Task) => {
+           console.log('Edited Task', response)
+         },
+         error => {
+           console.log(error)
+         }
+       )
       }
     )
   }
