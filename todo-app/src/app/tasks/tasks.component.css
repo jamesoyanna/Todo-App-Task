@@ -13,3 +13,12 @@ mat-card mat-list-icon{
     width: 100%;
     cursor: pointer;
 }
+
+form{
+    width: 100%;
+}
+mat-form-field{
+width: 100%;
+}
+
+

@@ -3,7 +3,8 @@ import { TasksService } from './tasks.service';
 import { Task } from './task.model';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskDialogComponent } from './../task-dialog/task-dialog.component';
-import { Subscriber } from 'rxjs';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
@@ -11,6 +12,11 @@ import { Subscriber } from 'rxjs';
 })
 export class TasksComponent implements OnInit {
 tasks: Task[] = [];
+
+taskForm = new FormGroup({
+  title: new FormControl('', [Validators.required]),
+  description: new FormControl('', [Validators.required]),
+})
   constructor(
     private tasksService: TasksService,
     private dialog: MatDialog
@@ -18,6 +24,23 @@ tasks: Task[] = [];
 
   ngOnInit(): void {
     this.getTasks();
+  }
+
+  // Create Task
+  createTask(): void {
+    const task ={
+      title: this.taskForm.get('title')?.value,
+      description: this.taskForm.get('description')?.value
+    }
+    this.tasksService.createTask(task)
+    .subscribe(
+      (response: Task[]) => {
+        this.tasks = response
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 
   // Get Task

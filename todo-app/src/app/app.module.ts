@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
-import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { FormsModule } from '@angular/forms';
     SharedModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
+
    
   ],
   providers: [],

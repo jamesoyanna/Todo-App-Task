@@ -14,6 +14,11 @@ export class TasksService {
     private http: HttpClient
   ) { }
 
+  // Create Task
+  createTask(task: Task): Observable<Task[]| any>{
+    return this.http.post(`${this.apiUrl}/tasks`, task);
+  }
+
   // Get Tasks
   getTasks(): Observable<Task[] | any>{
   return this.http.get(`${this.apiUrl}/tasks`)
