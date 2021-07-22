@@ -6,7 +6,7 @@
                 <mat-label>
                     Search
                 </mat-label>
-                <input matInput type="text"  placeholder="Search for tasks" />
+                <input class="form-input" matInput type="text" placeholder="Search for tasks" />
         </mat-form-field>
         </form>
     </mat-card>
@@ -27,20 +27,45 @@
             <mat-label>Task Description</mat-label>
             <input type="text" matInput placeholder="Task Description" required required formControlName="description" />
         </mat-form-field>
-        <!-- <button
-         mat-raised-button
-         type="submit"
-         color="primary"
-         [disabled] = "!taskForm.valid"
-        >
-         Add
-        </button> -->
      </form>
     </mat-card> <!-- End of Create Task-->
+   
+ <mat-card>
+    <mat-list> 
+        <h1 class="head">Todo Ap  Task</h1>
+<table class="table"  mat-table [dataSource]="tasks" class="mat-elevation-z8">
+    <ng-container matColumnDef="No">
+        <th mat-header-cell *matHeaderCellDef> No.</th>
 
-    <!-- Task list-->
-       
-    <mat-card>
+        <td mat-line mat-cell *matCellDef="let task"> {{task.id}} </td>
+    </ng-container>
+    <!-- Name of TaskColumn -->
+    <ng-container matColumnDef="Name">
+        <th mat-header-cell *matHeaderCellDef> Name of Task</th>
+        <td mat-line mat-cell *matCellDef="let task"> {{task.title}} </td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="Description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-line mat-cell *matCellDef="let task"> {{task.description}} </td>
+    </ng-container>
+
+    <!-- Actions  Column -->
+    <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let task">
+            <mat-icon  style="color:blue"(click)="editTask(task)">edit</mat-icon></td> 
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+</table>
+</mat-list>
+</mat-card>
+
+<!-- Task list-->
+
+<!-- <mat-card>
      <mat-list>
          <mat-list-item *ngFor="let task of tasks">
              <mat-icon mat-list mat-list-icon>Task</mat-icon>
@@ -50,5 +75,5 @@
             <mat-icon (click)="deleteTask(task)">delete</mat-icon>
          </mat-list-item>
      </mat-list>
-</mat-card>
+</mat-card>  -->
 <!-- End of task list-->

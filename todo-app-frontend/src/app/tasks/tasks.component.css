@@ -21,4 +21,17 @@ mat-form-field{
 width: 100%;
 }
 
+.head{
+text-align: center;
+} 
+
+
+table {
+  width: 100%;
+}
+
+.form-input {
+  box-shadow: 0 10px 40px 0 #c8d1dd;
+}
+
 

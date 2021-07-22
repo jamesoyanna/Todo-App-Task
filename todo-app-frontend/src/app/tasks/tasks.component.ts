@@ -14,13 +14,23 @@ export class TasksComponent implements OnInit {
 tasks: Task[] = [];
 
 
+ displayedColumns: string[] = ['No', 'Name', 'Description', 'Actions'];
+  dataSource = this.tasks;
+ 
 taskForm = new FormGroup({
   title: new FormControl('', [Validators.required]),
   description: new FormControl('', [Validators.required]),
 })
+
+searchForm = new FormGroup({
+  title: new FormControl(''),
+  description: new FormControl(''),
+})
+
   constructor(
     private tasksService: TasksService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+  
   ) { }
 
   ngOnInit(): void {
@@ -98,6 +108,16 @@ taskForm = new FormGroup({
   }
 
   // Find Task
- 
+ findTask(task: Task){
+    this.tasksService.findTask(task)
+    .subscribe(
+      (response: string) => {
+       console.log(response)
+      },
+      error => {
+        console.log(error)
+      }
+    )
+ }
 
 }

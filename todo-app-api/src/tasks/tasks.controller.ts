@@ -6,7 +6,9 @@ import {
   Param,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
+
 import { Task } from './task.model';
 import { TasksService } from './tasks.service';
 
@@ -17,22 +19,29 @@ export class TasksController {
   // Create tasks
   @Post()
   async createTask(@Body() body: Task): Promise<Task[]> {
-     const tasks = await this.tasksService.createTask(body);
-     return tasks;
+    const tasks = await this.tasksService.createTask(body);
+    return tasks;
   }
 
-  // Get Tasks
+  // Get  All Tasks
   @Get()
   async getTasks(): Promise<Task[]> {
-     const tasks = await this.tasksService.getTasks();
-     return tasks;
+    const tasks = await this.tasksService.getTasks();
+    return tasks;
+  }
+
+  // Query  search
+  @Get()
+  async searchTask(@Query('title') title: string): Promise<Task> {
+    const search = await this.tasksService.searchTask(title);
+    return search;
   }
 
   // Get one task
   @Get(':id')
   async getOneTask(@Param('id') id: string): Promise<Task> {
     const task = await this.tasksService.getOneTask(id);
-     return task;
+    return task;
   }
 
   // Update Task

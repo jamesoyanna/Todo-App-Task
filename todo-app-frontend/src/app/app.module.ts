@@ -4,6 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+
 
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
@@ -26,6 +28,7 @@ import { TaskDialogComponent } from './task-dialog/task-dialog.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatTableModule,
 
 
    
