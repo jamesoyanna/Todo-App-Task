@@ -25,7 +25,8 @@ import { TaskDialogComponent } from './task-dialog/task-dialog.component';
     SharedModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
 
    
   ],

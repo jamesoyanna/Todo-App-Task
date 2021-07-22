@@ -1,7 +1,24 @@
      
-    <!-- Create Task-->
+    <!-- Search Form-->
+   <mat-card>
+        <form>
+            <mat-form-field>
+                <mat-label>
+                    Search
+                </mat-label>
+                <input matInput type="text"  placeholder="Search for tasks" />
+        </mat-form-field>
+        </form>
+    </mat-card>
+        <!-- End Search Form-->
+   <!-- Create Task-->
     <mat-card>
+            
      <form [formGroup] ="taskForm" (ngSubmit)="createTask()">
+        <button style=" float: right;" mat-raised-button type="submit" color="primary" [disabled]="!taskForm.valid">
+            Add Task
+        </button>
+        
          <mat-form-field>
              <mat-label>Task Tile</mat-label>
              <input type="text" matInput placeholder="Task Title" required formControlName="title" />
@@ -10,14 +27,14 @@
             <mat-label>Task Description</mat-label>
             <input type="text" matInput placeholder="Task Description" required required formControlName="description" />
         </mat-form-field>
-        <button
+        <!-- <button
          mat-raised-button
          type="submit"
          color="primary"
          [disabled] = "!taskForm.valid"
         >
          Add
-        </button>
+        </button> -->
      </form>
     </mat-card> <!-- End of Create Task-->
 
