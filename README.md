@@ -10,7 +10,9 @@
                                      
                                      
                                                                   Application View 
-                             ![task app](https://user-images.githubusercontent.com/26815113/126795805-9affced4-4bd2-4ac7-8013-6688efa7b152.PNG)
+                  
+   ![task app](https://user-images.githubusercontent.com/26815113/126796148-5b41118e-36c6-4c56-b37d-9a5243a5682c.PNG)
+
 
 
 This application contains two folders- 
