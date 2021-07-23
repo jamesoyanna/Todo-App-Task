@@ -4,13 +4,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatToolbarModule} from '@angular/material/toolbar'; 
 import { MatTableModule } from '@angular/material/table';
-
 
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+
 
 
 @NgModule({
@@ -29,6 +30,9 @@ import { TaskDialogComponent } from './task-dialog/task-dialog.component';
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
+    MatToolbarModule,
+   
+   
 
 
    

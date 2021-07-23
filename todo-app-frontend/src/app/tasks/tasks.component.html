@@ -1,12 +1,13 @@
      
     <!-- Search Form-->
+    <h1 class="head">Todo Ap Task</h1>
    <mat-card>
         <form>
             <mat-form-field>
                 <mat-label>
                     Search
                 </mat-label>
-                <input class="form-input" matInput type="text" placeholder="Search for tasks" />
+                <input matInput type="text"   placeholder="Search for tasks" />
         </mat-form-field>
         </form>
     </mat-card>
@@ -21,45 +22,51 @@
         
          <mat-form-field>
              <mat-label>Task Tile</mat-label>
-             <input type="text" matInput placeholder="Task Title" required formControlName="title" />
+             <input type="text" matInput placeholder="Task Title" required formControlName="title" maxlength="100" />
          </mat-form-field>
         <mat-form-field>
             <mat-label>Task Description</mat-label>
-            <input type="text" matInput placeholder="Task Description" required required formControlName="description" />
+            <input type="text" matInput placeholder="Task Description" required required formControlName="description" maxlength="100" />
         </mat-form-field>
      </form>
     </mat-card> <!-- End of Create Task-->
    
  <mat-card>
     <mat-list> 
-        <h1 class="head">Todo Ap  Task</h1>
+       
 <table class="table"  mat-table [dataSource]="tasks" class="mat-elevation-z8">
     <ng-container matColumnDef="No">
-        <th mat-header-cell *matHeaderCellDef> No.</th>
+        <th class="header" mat-header-cell *matHeaderCellDef> No.</th>
 
-        <td mat-line mat-cell *matCellDef="let task"> {{task.id}} </td>
+        <td class="data" mat-line mat-cell *matCellDef="let task"> {{task.id}} </td>
     </ng-container>
     <!-- Name of TaskColumn -->
     <ng-container matColumnDef="Name">
-        <th mat-header-cell *matHeaderCellDef> Name of Task</th>
-        <td mat-line mat-cell *matCellDef="let task"> {{task.title}} </td>
+        <th class="header" mat-header-cell *matHeaderCellDef> Name of Task</th>
+        <td class="data" mat-line mat-cell *matCellDef="let task"> {{task.title}} </td>
     </ng-container>
 
     <!-- Description Column -->
     <ng-container matColumnDef="Description">
-        <th mat-header-cell *matHeaderCellDef> Description </th>
-        <td mat-line mat-cell *matCellDef="let task"> {{task.description}} </td>
+        <th class="header" mat-header-cell *matHeaderCellDef> Description </th>
+        <td class="data" mat-line mat-cell *matCellDef="let task"> {{task.description}} </td>
     </ng-container>
 
     <!-- Actions  Column -->
     <ng-container matColumnDef="Actions">
-        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <th class="header" mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let task">
             <mat-icon  style="color:blue"(click)="editTask(task)">edit</mat-icon></td> 
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
 </table>
+ <!-- <div class="pagination">
+<mat-paginator [length]="tasks.length"
+[pageSize]="5"
+[pageSizeOptions] ="[5, 10, 25]">
+</mat-paginator>
+</div> -->
 </mat-list>
 </mat-card>
 

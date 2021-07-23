@@ -23,6 +23,7 @@ width: 100%;
 
 .head{
 text-align: center;
+font-weight: bold;
 } 
 
 
@@ -30,8 +31,13 @@ table {
   width: 100%;
 }
 
-.form-input {
-  box-shadow: 0 10px 40px 0 #c8d1dd;
+.header{
+  font-size: 16px;
 }
+.data{
+  font-size: 16px; 
+}
+
+
 
 

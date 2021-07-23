@@ -14,24 +14,24 @@ export class TasksComponent implements OnInit {
 tasks: Task[] = [];
 
 
- displayedColumns: string[] = ['No', 'Name', 'Description', 'Actions'];
-  dataSource = this.tasks;
+ 
+dataSource = this.tasks;
+displayedColumns: string[] = ['No', 'Name', 'Description', 'Actions'];
+  
  
 taskForm = new FormGroup({
   title: new FormControl('', [Validators.required]),
   description: new FormControl('', [Validators.required]),
 })
 
-searchForm = new FormGroup({
-  title: new FormControl(''),
-  description: new FormControl(''),
-})
 
   constructor(
     private tasksService: TasksService,
     private dialog: MatDialog,
   
-  ) { }
+  ) { 
+    
+  }
 
   ngOnInit(): void {
     this.getTasks();
@@ -107,17 +107,14 @@ searchForm = new FormGroup({
    )
   }
 
-  // Find Task
- findTask(task: Task){
-    this.tasksService.findTask(task)
-    .subscribe(
-      (response: string) => {
-       console.log(response)
-      },
-      error => {
-        console.log(error)
-      }
-    )
- }
+ 
+
+
+//  applySearch(event: any){
+//    console.log(event)
+//    const searchValue = (event.target as HTMLInputElement).value;
+//    this.dataSource = searchValue.trim().toLowerCase()
+   
+//  }
 
 }

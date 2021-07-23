@@ -36,8 +36,8 @@ export class TasksService {
   }
 
   // Find Task
-   findTask(task: Task): Observable<Task[] | any>{
-  return this.http.get(`${this.apiUrl}/tasks${task.id}`)
-  }
+  //  searchTask(task: Task): Observable<Task[] | any>{
+  // return this.http.get(`${this.apiUrl}/tasks${task.id}`)
+  // }
 
 }
