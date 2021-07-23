@@ -7,6 +7,11 @@
  #### -A search field to search for tasks on the backend.
  #### - A "Add Task button for adding of tasks with their description.
   #### - An edit button for editing of submmitted tasks.
+                                     
+                                     
+                                                                  Application View 
+                             ![task app](https://user-images.githubusercontent.com/26815113/126795805-9affced4-4bd2-4ac7-8013-6688efa7b152.PNG)
+
 
 This application contains two folders- 
 - Todo-app-api , for the backend application.
