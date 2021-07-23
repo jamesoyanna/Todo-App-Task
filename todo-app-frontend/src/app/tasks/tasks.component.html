@@ -1,18 +1,21 @@
      
     <!-- Search Form-->
-    <h1 class="head">Todo Ap Task</h1>
+    <h1 class="head">Todo App Task</h1>
    <mat-card>
         <form>
             <mat-form-field>
                 <mat-label>
                     Search
                 </mat-label>
-                <input matInput type="text"   placeholder="Search for tasks" />
+                 <!-- Handle search of task on key press -->
+                <!-- <input matInput type="text" (keyup)="applySearch(event)" placeholder="Search for tasks" /> -->
+                <input matInput type="text" placeholder="Search for tasks" />
         </mat-form-field>
         </form>
     </mat-card>
         <!-- End Search Form-->
-   <!-- Create Task-->
+
+   <!-- Create Task Form-->
     <mat-card>
             
      <form [formGroup] ="taskForm" (ngSubmit)="createTask()">
@@ -29,11 +32,11 @@
             <input type="text" matInput placeholder="Task Description" required required formControlName="description" maxlength="100" />
         </mat-form-field>
      </form>
-    </mat-card> <!-- End of Create Task-->
+    </mat-card> <!-- End of Create Task Form-->
    
+    <!-- Table-->
  <mat-card>
     <mat-list> 
-       
 <table class="table"  mat-table [dataSource]="tasks" class="mat-elevation-z8">
     <ng-container matColumnDef="No">
         <th class="header" mat-header-cell *matHeaderCellDef> No.</th>
@@ -56,31 +59,22 @@
     <ng-container matColumnDef="Actions">
         <th class="header" mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let task">
-            <mat-icon  style="color:blue"(click)="editTask(task)">edit</mat-icon></td> 
+            <mat-icon  style="color:blue"(click)="editTask(task)">edit</mat-icon>
+              <!-- Code to handle deletion of task -->
+            <!-- <mat-icon style="color:blue" (click)="deleteTask(task)">delete</mat-icon> -->
+            </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
 </table>
+    <!-- End of Table-->
+</mat-list>
+</mat-card>
+
+    <!-- Code to Implement Pagination -->
  <!-- <div class="pagination">
 <mat-paginator [length]="tasks.length"
 [pageSize]="5"
 [pageSizeOptions] ="[5, 10, 25]">
 </mat-paginator>
 </div> -->
-</mat-list>
-</mat-card>
-
-<!-- Task list-->
-
-<!-- <mat-card>
-     <mat-list>
-         <mat-list-item *ngFor="let task of tasks">
-             <mat-icon mat-list mat-list-icon>Task</mat-icon>
-             <div mat-line>{{task.title}}</div>
-             <div mat-line>{{task.description}}</div>
-             <mat-icon (click)="editTask(task)">edit</mat-icon>
-            <mat-icon (click)="deleteTask(task)">delete</mat-icon>
-         </mat-list-item>
-     </mat-list>
-</mat-card>  -->
-<!-- End of task list-->
